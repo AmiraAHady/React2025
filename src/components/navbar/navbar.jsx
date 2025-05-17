@@ -1,13 +1,33 @@
 import { Component } from "react";
-import './navbar.css'
+import "./navbar.css";
 import NavLink from "../navlink/navlink";
+// import { FaBeer } from "@react-icons/all-files/fa/FaBeer";
+// import { BsAlarm } from "@react-icons/all-files/bs/BsAlarm";
+import { BsAirplaneFill } from "react-icons/bs";
 export default class Navbar extends Component {
   constructor() {
     super();
     this.state = {
       name: "omar",
+      navlinks: [
+        {
+          content: "Home",
+          url: "goole.com",
+        },
+        {
+          content: "Products",
+          url: "Products.com",
+        },
+        {
+          content: "About",
+          url: "About.com",
+        },
+        {
+          content: "Contact US",
+          url: "contact.com",
+        },
+      ],
     };
-    console.log("hello from constructor");
   }
   handelchange = () => {
     this.setState({ name: this.state.name == "Ali" ? "Omar" : "Ali" });
@@ -30,15 +50,22 @@ export default class Navbar extends Component {
     return (
       //   <React.Fragment>
       <>
+        {/* <h2>
+          <BsAirplaneFill />
+        </h2> */}
         <ul>
-          <NavLink  content='Home' url='www.google.com'/>
-          <NavLink content='Products' url='www.amazon.com'/>
-          <NavLink content='About Us' url='www.facebook.com'/>
-          <NavLink content='Contact us' url='www.google.com'/>
+          {this.state.navlinks.map((item) => {
+            return <NavLink content={item.content} url={item.url}/>;
+          })}
+
+          {/* <NavLink content="Home" url="www.google.com" />
+          <NavLink content="Products" url="www.amazon.com" />
+          <NavLink content="About Us" url="www.facebook.com" />
+          <NavLink content="Contact us" url="www.google.com" /> */}
         </ul>
-        <h3 className='title'>{this.state.name}</h3>
+        <h3 className="title">{this.state.name}</h3>
         <label htmlFor="userName">userName</label>
-        <input type="text" name="userName"/>
+        <input type="text" name="userName" />
         <img />
         <button onClick={this.handelchange}>change Name</button>
       </>

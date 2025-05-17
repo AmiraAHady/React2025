@@ -1,11 +1,16 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import flowerImg from "../../assets/images/img1.webp";
 export default function ProductCard() {
   return (
     <div className="container">
     <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src="https://www.apple.com/newsroom/images/product/iphone/standard/iphone8plus_product_red_back_041018_carousel.jpg.large.jpg" />
+      {/* ../../../public/img1 */}
+      {/* <Card.Img variant="top" src="img1.webp" /> */}
+      <Card.Img variant="top" src={flowerImg} />
+      {/* not working */}
+      {/* <Card.Img variant="top" src="../../assets/img1.webp" /> */}
       <Card.Body>
         <Card.Title>Card Title</Card.Title>
         <Card.Text>
